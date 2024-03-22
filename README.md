@@ -29,6 +29,8 @@ Time spent: 4 hours spent in total
       <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/3c8bbbf901254894b074ac2cc9d79c94-with-play.gif">
     </a>
 </div>
+## GIF
+https://submissions.us-east-1.linodeobjects.com/web102/SxSmy-DV.gif
 
 ## License
 
