@@ -20,4 +20,6 @@ Time spent: 4 hours spent in total
 <ul>
   <li>* [ ] List anything else that you added to improve the site's functionality!</li>
 </ul>
+## Video Walkthrough
+<img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/3c8bbbf901254894b074ac2cc9d79c94-with-play.gif">
 
