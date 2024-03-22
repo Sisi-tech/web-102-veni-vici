@@ -5,6 +5,7 @@ import axios from 'axios';
 function App() {
   const [dogData, setDogData] = useState();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [reviewedImages, setReviewedImage] = useState([]);
   const apiKey = "live_EGnXUqIdCkiU9EOqR2aHCtp6ByaDSW3oFFx17NMNrzhw46tM0QhRbYyBPl5wtY95"
   const URL = `https://api.thedogapi.com/v1/images/search?limit=10&api_key=${apiKey}`;
 
@@ -19,6 +20,12 @@ function App() {
 
   const handleNextImage = () => {
     setCurrentIndex((prevIndex) => (prevIndex + 1) % dogData.length);
+    handleReviewImage();
+  }
+
+  const handleReviewImage = () => {
+    const reviewedImage = dogData[currentIndex];
+    setReviewedImage((prevImages) => [...prevImages, reviewedImage]);
   }
 
   return (
@@ -30,10 +37,14 @@ function App() {
         {/* History side */}
         <div className='col-span-1 h-screen shadow-md shadow-gray-900 pt-10'>
           <h2 className='text-2xl'>Who have we seen so far?</h2>
-          <div className='flex flex-col justify-center items-center pt-4 gap-2'>
-            <img src="src/assets/dog2.jpg" className='w-[120px] rounded-sm shadow-md shadow-gray-500' />
-            <p>Description</p>
-          </div>
+
+        {/* display all reviewed image from main screen here */}
+        {reviewedImages.map((image, index) => (
+            <div key={index} className='flex flex-col justify-center items-center pt-4 gap-2'>
+              <img src={image.url} className='w-[120px] rounded-sm shadow-md shadow-gray-500' />
+              <p>{image.breeds.length > 0 ? image.breeds[0].name : ""}</p>
+            </div>
+          ))}
         </div>
 
         {/* main screen */}
