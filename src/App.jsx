@@ -34,18 +34,18 @@ function App() {
   }
 
   return (
-    <div className='relative h-screen w-full flex justify-center text-white'>
-      <div className="absolute inset-0 bg-cover bg-[url('./assets/dog1.jpg')] w-4/5"></div>
+    <div className='relative min-h-screen w-full flex justify-center text-white'>
+      <div className="absolute inset-0 background bg-cover bg-[url('./assets/dog1.jpg')] w-4/5"></div>
       <div className='absolute inset-0 bg-gray-900 bg-opacity-70'></div>
       <div className='absolute w-full grid grid-cols-5 gap-5 text-center'>
 
         {/* History side */}
-        <div className='col-span-1 h-screen shadow-md shadow-gray-900 pt-10'>
+        <div className='col-span-1 h-screen shadow-md shadow-gray-900 pt-10 '>
           <h2 className='text-2xl'>Who have we seen so far?</h2>
 
         {/* display all reviewed image from main screen here */}
         {reviewedImages.map((image, index) => (
-            <div key={index} className='flex flex-col justify-center items-center pt-4 gap-2'>
+            <div key={index} className='flex flex-col justify-center overflow-y-auto items-center pt-4 gap-2'>
               <img src={image.url} className='w-[120px] rounded-sm shadow-md shadow-gray-500' />
               <p>{image.breeds.length > 0 ? image.breeds[0].name : ""}</p>
             </div>
