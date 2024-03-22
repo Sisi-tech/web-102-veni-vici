@@ -6,6 +6,7 @@ function App() {
   const [dogData, setDogData] = useState();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [reviewedImages, setReviewedImage] = useState([]);
+  const [banList, setBanList] = useState([]);
   const apiKey = "live_EGnXUqIdCkiU9EOqR2aHCtp6ByaDSW3oFFx17NMNrzhw46tM0QhRbYyBPl5wtY95"
   const URL = `https://api.thedogapi.com/v1/images/search?limit=10&api_key=${apiKey}`;
 
@@ -26,6 +27,10 @@ function App() {
   const handleReviewImage = () => {
     const reviewedImage = dogData[currentIndex];
     setReviewedImage((prevImages) => [...prevImages, reviewedImage]);
+  }
+
+  const addImageInfo = (info) => {
+    setBanList((prevList) => [...prevList, info]);
   }
 
   return (
@@ -56,10 +61,22 @@ function App() {
             <div>
               <p className='text-2xl pb-4'>{ dogData[currentIndex].breeds[0].name || " " }</p>
               <div className='flex justify-center gap-6'>
-              <p className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg'>Height: {dogData[currentIndex].breeds[0].height.metric || ""}</p>
-              <p className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg'>{dogData[currentIndex].breeds[0].weight.metric || "" } lbs</p>
-              <p className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg'>{dogData[currentIndex].breeds[0].bred_for || "" }</p>
-              <p className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg'>{dogData[currentIndex].breeds[0].life_span || ""}</p>
+              <button className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg'
+                onClick={() => addImageInfo(`Height: ${dogData[currentIndex].breeds[0].height.metric || ""}`)}>
+                Height: {dogData[currentIndex].breeds[0].height.metric || ""}
+              </button>
+              <button className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg'
+                onClick={() => addImageInfo(`${dogData[currentIndex].breeds[0].weight.metric || ""} lbs`)}>
+                {dogData[currentIndex].breeds[0].weight.metric || "" } lbs
+              </button>
+              <button className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg'
+                onClick={() => addImageInfo(`${dogData[currentIndex].breeds[0].bred_for || ""}`)}>
+                {dogData[currentIndex].breeds[0].bred_for || "" }
+              </button>
+              <button className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg'
+                onClick={() => addImageInfo(`${dogData[currentIndex].breeds[0].left_span || ""}`)}>
+                {dogData[currentIndex].breeds[0].life_span || ""}
+              </button>
               </div>
             </div>
           ) : (
@@ -74,11 +91,17 @@ function App() {
         <div className='flex  flex-col items-center gap-4 col-span-1 pt-10'>
           <h2 className='text-2xl'>Ban List</h2>
           <p>Select an attribute in your listing to ban it</p>
-          <button className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg shadow-md shadow-gray-700'>Russia</button>
-          <button className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg shadow-md shadow-gray-700'>10 - 12 years</button>
-          <button className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg shadow-md shadow-gray-700'>Javanese</button>
-          <button className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg shadow-md shadow-gray-700'>Turkey</button>
-          <button className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg shadow-md shadow-gray-700'>8 - 18 lbs</button>
+
+          {
+            banList.map((info, index) => (
+              <div key={index}>
+                <p className='bg-orange-400 p-1 pl-4 pr-4 rounded-lg shadow-md shadow-gray-700'>
+                  {info}
+                </p>
+              </div>
+            ))
+          }
+          
         </div>
       </div>
     </div>
