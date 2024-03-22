@@ -21,5 +21,12 @@ Time spent: 4 hours spent in total
   <li>* [ ] List anything else that you added to improve the site's functionality!</li>
 </ul>
 ## Video Walkthrough
-<img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/3c8bbbf901254894b074ac2cc9d79c94-with-play.gif">
+<div>
+    <a href="https://www.loom.com/share/3c8bbbf901254894b074ac2cc9d79c94">
+      <p>Vite + React - 22 March 2024 - Watch Video</p>
+    </a>
+    <a href="https://www.loom.com/share/3c8bbbf901254894b074ac2cc9d79c94">
+      <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/3c8bbbf901254894b074ac2cc9d79c94-with-play.gif">
+    </a>
+</div>
 
