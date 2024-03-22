@@ -11,5 +11,13 @@ Time spent: 4 hours spent in total
   <li>- [x] **Clicking on a displayed value for one attribute adds it to a displayed ban list**</li>
   <li>- [x] **Attributes on the ban list prevent further images/API results with that attribute from being displayed**</li>
 </ul>
-
+<h2>The following **optional** features are implemented:</h2>
+<ul>
+  <li>- [x] Multiple types of attributes can be added to the ban list</li>
+  <li>- [x] Users can see a stored history of their previously viewed items from their session</li>
+</ul>
+<h2>The following **additional** features are implemented:</h2>
+<ul>
+  <li>* [ ] List anything else that you added to improve the site's functionality!</li>
+</ul>
 
