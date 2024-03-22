@@ -1,7 +1,20 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import axios from 'axios';
 
 
 function App() {
+  const [dogData, setDogData] = useState();
+  const apiKey = "live_EGnXUqIdCkiU9EOqR2aHCtp6ByaDSW3oFFx17NMNrzhw46tM0QhRbYyBPl5wtY95"
+  const URL = `https://api.thecatapi.com/v1/images/search?limit=10&api_key=${apiKey}`;
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await axios.get(URL);
+      setDogData(response.data);
+      console.log(response)
+    }
+    fetchData();
+  }, [])
 
   return (
     <div className='relative h-screen w-full flex justify-center text-white'>
